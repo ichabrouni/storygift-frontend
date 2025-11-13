@@ -19,3 +19,4 @@ export const db = getFirestore(app);
 
 // sanity check
 console.log("🔥 Connected to project:", app.options.projectId);
+console.log("🔥 Firebase config:", firebaseConfig);

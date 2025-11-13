@@ -1,18 +1,18 @@
 /* ===== Global layout ===== */
 
-.storygift-main-admin {
-  min-height: 100vh;
-  padding: 32px clamp(16px, 4vw, 48px);
-  box-sizing: border-box;
 
-  background: radial-gradient(circle at top, #020617 0, #020617 35%, #000 100%);
+
+.storygift-main-admin {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: radial-gradient(circle at top, #0c1436 0, #07144f 35%, #272626 100%);
   color: #f9fafb;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
     "Segoe UI", sans-serif;
-
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
 }
 
 /* Centered messages (no access, loading, etc.) */
