@@ -22,14 +22,14 @@ export function SignInBar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (u) => {
-      setUser(u);
-      setError(null);
-      setInfo(null);
-      if (u) setOpen(false);
-    });
-    return unsub;
-  }, []);
+  const unsub = onAuthStateChanged(auth, (u: User | null) => {
+    setUser(u);
+    setError(null);
+    setInfo(null);
+    if (u) setOpen(false);
+  });
+  return unsub;
+}, []);
 
   const onSubmit = async () => {
     setError(null);
