@@ -1,0 +1,458 @@
+/* --- Floating header bubble --- */
+.storygift-header {
+  position: fixed;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  max-width: 960px;
+  width: calc(100% - 40px);
+
+  border-radius: 999px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 24px;
+  z-index: 100;
+
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.storygift-logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  background: linear-gradient(135deg, #ff7aa2, #ffb86c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+/* container for admin page content */
+.storygift-main-admin {
+  max-width: 960px;
+  margin: 120px auto 40px; /* space under header */
+  padding: 0 24px 40px;
+}
+
+/* sign-in button style if you decide to use a class instead of inline */
+.storygift-signin-btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #ff7aa2, #ffb86c);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 6px 18px rgba(255, 122, 162, 0.35);
+}
+
+.storygift-signin-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(255, 122, 162, 0.5);
+}
+
+/* --- Gift public page layout --- */
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #fdf7ff;
+}
+
+/* background */
+.gift-page-bg {
+  min-height: 100vh;
+  width: 100vw;
+  padding: 120px 16px 40px; /* top padding to avoid header overlap */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle at top left,
+    #ff9a9e 0,
+    #fecfef 20%,
+    #f6f3ff 50%,
+    #e3f0ff 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+/* soft glow */
+.gift-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9), transparent 60%);
+  top: -120px;
+  right: -80px;
+  opacity: 0.65;
+  pointer-events: none;
+  filter: blur(2px);
+}
+
+/* main card */
+.gift-card {
+  position: relative;
+  max-width: 920px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 24px;
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.14),
+    0 0 0 1px rgba(255, 255, 255, 0.7);
+  padding: 24px 20px 28px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  animation: giftCardEnter 0.6s ease-out;
+}
+
+@keyframes giftCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* header inside the card */
+.gift-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.gift-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.gift-logo-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  box-shadow: 0 4px 10px rgba(255, 118, 172, 0.5);
+}
+
+.gift-brand-title {
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #ff6094;
+}
+
+.gift-subtitle {
+  font-size: 14px;
+  color: #7b7b90;
+}
+
+.gift-main-title {
+  text-align: center;
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 600;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  color: #24293a;
+}
+
+/* divider */
+.gift-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.gift-divider-line {
+  height: 1px;
+  width: 64px;
+  background: linear-gradient(90deg, transparent, #ffc2d1, transparent);
+}
+
+.gift-divider-icon {
+  font-size: 18px;
+}
+
+/* custom title / message (the "Hello my LOVE") */
+.gift-message-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3142;
+  margin-bottom: 12px;
+}
+
+/* video area */
+.gift-video-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.gift-video-frame {
+  width: 100%;
+  max-width: 720px;
+  aspect-ratio: 16 / 9;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.16);
+  background: #000;
+}
+
+.gift-video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.gift-video-placeholder {
+  width: 100%;
+  max-width: 720px;
+  padding: 32px 20px;
+  border-radius: 20px;
+  border: 1px dashed rgba(255, 145, 171, 0.7);
+  background: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  color: #6b6b7c;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.06);
+}
+
+.gift-video-emoji {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.gift-video-small {
+  font-size: 12px;
+  color: #9b9ba8;
+}
+
+/* receiver note under video */
+.gift-receiver-text {
+  text-align: center;
+  font-size: 13px;
+  color: #7f7f93;
+  margin: 6px auto 16px;
+  max-width: 520px;
+}
+
+/* edit panel (only visible for owner / unclaimed) */
+.gift-edit-panel {
+  margin-top: 10px;
+  border-radius: 16px;
+  padding: 16px 14px 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 210, 230, 0.35),
+    rgba(255, 255, 255, 0.9)
+  );
+  border: 1px solid rgba(255, 181, 209, 0.6);
+}
+
+.gift-edit-title {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #50324f;
+}
+
+.gift-edit-subtitle {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: #7a587b;
+}
+
+.gift-label {
+  display: block;
+  font-size: 12px;
+  color: #5c445f;
+  margin-bottom: 4px;
+}
+
+.gift-input {
+  width: 100%;
+  border-radius: 999px;
+  border: 1px solid rgba(143, 120, 150, 0.4);
+  padding: 8px 14px;
+  font-size: 13px;
+  margin-bottom: 10px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.95);
+  transition: box-shadow 0.18s ease, border-color 0.18s ease,
+    transform 0.08s ease;
+}
+
+.gift-input:focus {
+  border-color: #ff7aa2;
+  box-shadow: 0 0 0 1px rgba(255, 122, 162, 0.5),
+    0 8px 20px rgba(255, 122, 162, 0.35);
+  transform: translateY(-1px);
+}
+
+.gift-save-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #ff7aa2, #ffb86c);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(255, 122, 162, 0.55);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+
+.gift-save-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 34px rgba(255, 122, 162, 0.7);
+}
+
+.gift-save-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* helper text */
+.gift-claim-note {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #7b587e;
+}
+
+/* read-only info for recipient */
+.gift-owner-note {
+  margin-top: 10px;
+  font-size: 12px;
+  text-align: center;
+  color: #7f7f93;
+}
+
+.gift-error {
+  color: #c0392b;
+  font-size: 14px;
+  text-align: center;
+}
+
+.gift-error-text {
+  font-size: 12px;
+  color: #b61827;
+  margin-top: 4px;
+  text-align: center;
+}
+
+.gift-loading {
+  color: white;
+  font-size: 16px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+/* mobile */
+@media (max-width: 640px) {
+  .storygift-header {
+    top: 16px;
+    padding: 10px 16px;
+  }
+
+  .gift-page-bg {
+    padding: 120px 10px 24px;
+  }
+
+  .gift-card {
+    padding: 16px 12px 18px;
+    border-radius: 18px;
+  }
+
+  .gift-main-title {
+    font-size: 18px;
+  }
+
+  .gift-video-placeholder {
+    padding: 22px 12px;
+  }
+
+  .gift-message-title {
+    font-size: 16px;
+  }
+}
+/* Title/message shown on the card (public + owner) */
+.gift-message-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2d3142;
+  margin-bottom: 14px;
+}
+
+/* Note for viewers who cannot edit */
+.gift-owner-note {
+  margin-top: 14px;
+  font-size: 12px;
+  text-align: center;
+  color: #7b7b93;
+}
+/* Allow login modal to overflow above the header */
+.storygift-header {
+  overflow: visible !important;
+}
+/* Force SignInBar content to align right */
+.storygift-header .signin-bar {
+  margin-left: auto !important;
+}
+.storygift-header {
+  overflow: visible !important;
+  position: relative;
+  z-index: 10; /* keeps header above background */
+}
+/* Center login dialog even when triggered from header */
+.signin-modal {
+  position: fixed !important;
+  top: 150% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 999999 !important;
+}
+/* Center & elevate the login popup */
+.firebaseui-container,
+.firebaseui-card,
+.firebaseui-popup {
+  position: fixed !important;
+  top: 90% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+
+  z-index: 999999 !important;
+
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+
+  background: #fff !important;
+  border-radius: 22px !important;
+}
+
+.signin-bar {
+  margin-left: auto;
+}

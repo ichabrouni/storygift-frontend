@@ -1,0 +1,314 @@
+/* ===== Global layout ===== */
+
+.storygift-main-admin {
+  min-height: 100vh;
+  padding: 32px clamp(16px, 4vw, 48px);
+  box-sizing: border-box;
+
+  background: radial-gradient(circle at top, #020617 0, #020617 35%, #000 100%);
+  color: #f9fafb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Centered messages (no access, loading, etc.) */
+.storygift-main-admin > p,
+.storygift-main-admin > div:not(.admin-gifts-hero):not(.admin-gifts-list):not(.admin-gifts-empty) {
+  margin: auto;
+  text-align: center;
+  font-size: 15px;
+  color: #e5e7eb;
+}
+
+
+/* ===== Hero / header ===== */
+
+.admin-gifts-hero {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 24px;
+  padding: 20px 22px 18px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.65);
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.admin-gifts-hero h1 {
+  font-size: clamp(24px, 3vw, 30px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0 0 4px;
+}
+
+.admin-gifts-hero p {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 14px;
+  max-width: 520px;
+}
+
+/* Primary CTA */
+.gift-save-button.admin-gifts-create-btn {
+  align-self: center;
+  white-space: nowrap;
+
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #f9fafb;
+  background: linear-gradient(135deg, #4f46e5, #8b5cf6);
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  box-shadow: 0 12px 32px rgba(79, 70, 229, 0.6);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease,
+    opacity 0.12s ease;
+}
+
+.gift-save-button.admin-gifts-create-btn:disabled {
+  opacity: 0.7;
+  cursor: default;
+  box-shadow: none;
+}
+
+.gift-save-button.admin-gifts-create-btn:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(79, 70, 229, 0.8);
+  filter: brightness(1.05);
+}
+
+
+/* ===== Error & empty states ===== */
+
+.gift-error-text {
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(127, 29, 29, 0.23);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  color: #fecaca;
+  font-size: 13px;
+}
+
+.admin-gifts-empty {
+  max-width: 960px;
+  width: 100%;
+  margin: 12px auto 0;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px dashed rgba(148, 163, 184, 0.5);
+  color: #9ca3af;
+  font-size: 14px;
+  text-align: center;
+}
+
+
+/* ===== Gifts grid ===== */
+
+.admin-gifts-list {
+  max-width: 1200px;
+  width: 100%;
+  margin: 8px auto 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+/* ===== Single card ===== */
+
+.admin-gift-card {
+  background: radial-gradient(circle at top left, #111827 0, #020617 60%);
+  border-radius: 20px;
+  padding: 14px 14px 12px;
+  border: 1px solid rgba(31, 41, 55, 0.9);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle glow border */
+.admin-gift-card::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at top, rgba(129, 140, 248, 0.12), transparent 55%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Force content on top of glow */
+.admin-gift-card > * {
+  position: relative;
+}
+
+/* Header area */
+
+.admin-gift-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.admin-gift-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #f9fafb;
+  overflow-wrap: anywhere;
+}
+
+.admin-gift-meta {
+  margin-top: 3px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* Status chip */
+
+.admin-gift-status {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: rgba(15, 23, 42, 0.95);
+  color: #e5e7eb;
+  white-space: nowrap;
+}
+
+.admin-gift-status--ready {
+  border-color: rgba(52, 211, 153, 0.7);
+  background: rgba(6, 95, 70, 0.7);
+  color: #bbf7d0;
+}
+
+.admin-gift-status--empty {
+  border-color: rgba(248, 113, 113, 0.7);
+  background: rgba(127, 29, 29, 0.4);
+  color: #fecaca;
+}
+
+/* Link block */
+
+.admin-gift-link {
+  font-size: 12px;
+  color: #e5e7eb;
+  padding: 6px 8px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.86);
+  border: 1px solid rgba(31, 41, 55, 0.9);
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+}
+
+.admin-gift-link span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Actions row */
+
+.admin-gift-actions {
+  margin-top: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.admin-gift-btn {
+  border-radius: 999px;
+  border: none;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #e5e7eb;
+  background: rgba(31, 41, 55, 0.9);
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  transition: background 0.12s ease, transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.admin-gift-btn:hover {
+  background: rgba(55, 65, 81, 1);
+  transform: translateY(-0.5px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.8);
+}
+
+/* Outline button */
+
+.admin-gift-btn--outline {
+  background: transparent;
+  border: 1px solid rgba(148, 163, 184, 0.8);
+}
+
+.admin-gift-btn--outline:hover {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+/* Danger button */
+
+.admin-gift-btn--danger {
+  background: rgba(127, 29, 29, 0.8);
+  border: 1px solid rgba(239, 68, 68, 0.8);
+}
+
+.admin-gift-btn--danger:hover {
+  background: rgba(185, 28, 28, 0.9);
+  border-color: rgba(248, 113, 113, 1);
+}
+
+
+/* ===== Small screen tweaks ===== */
+
+@media (max-width: 640px) {
+  .admin-gifts-hero {
+    padding: 18px 16px 16px;
+  }
+
+  .admin-gift-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .admin-gift-btn,
+  .admin-gift-btn--outline,
+  .admin-gift-btn--danger {
+    width: 100%;
+    justify-content: center;
+  }
+}
