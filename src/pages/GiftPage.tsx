@@ -20,6 +20,7 @@ type GiftDoc = {
   createdAt?: Timestamp;
   updatedAt?: Timestamp;
 };
+import storyboxLogo from "../assets/storybox-logo.png";
 
 /**
  * Robust YouTube ID extractor – accepts almost any YouTube URL
@@ -99,7 +100,7 @@ export function GiftPage() {
           setUrl(data.url ?? "");
         }
       } catch (e: any) {
-        setError(e?.message ?? "Failed to load this StoryGift.");
+        setError(e?.message ?? "Failed to load this StoryBox.");
       } finally {
         setLoading(false);
       }
@@ -118,11 +119,11 @@ export function GiftPage() {
 
   const onSave = async () => {
     if (!user) {
-      setError("Please sign in to claim this StoryGift.");
+      setError("Please sign in to claim this StoryBox.");
       return;
     }
     if (!canEdit) {
-      setError("Only the original sender can edit this StoryGift.");
+      setError("Only the original sender can edit this StoryBox.");
       return;
     }
     if (!isValid || !youtubeId) {
@@ -150,7 +151,7 @@ export function GiftPage() {
         ownerId: ownerId || user.uid,
       }));
     } catch (e: any) {
-      setError(e?.message ?? "Failed to save your StoryGift.");
+      setError(e?.message ?? "Failed to save your StoryBox.");
     } finally {
       setSaving(false);
     }
@@ -160,7 +161,7 @@ export function GiftPage() {
   if (loading) {
     return (
       <div className="gift-page-bg">
-        <div className="gift-loading">Loading your StoryGift…</div>
+        <div className="gift-loading">Loading your StoryBox…</div>
       </div>
     );
   }
@@ -170,7 +171,7 @@ export function GiftPage() {
       <div className="gift-page-bg">
         <div className="gift-card">
           <div className="gift-error">
-            This StoryGift could not be found. Please check the link.
+            This StoryBox could not be found. Please check the link.
           </div>
         </div>
       </div>
@@ -186,9 +187,13 @@ export function GiftPage() {
         {/* Header */}
         <div className="gift-header">
           <div className="gift-brand">
-            <span className="gift-logo-dot" />
-            <span className="gift-brand-title">StoryGift</span>
-          </div>
+  <img
+    src={storyboxLogo}
+    alt="StoryBox"
+    className="gift-logo-img"
+  />
+  <span className="gift-brand-title"></span>
+</div>
           <div className="gift-subtitle">An emotional moment stored in a tiny tag</div>
           <h1 className="gift-main-title">A video message that lives inside your gift</h1>
         </div>
@@ -212,7 +217,7 @@ export function GiftPage() {
           {gift?.videoId ? (
             <div className="gift-video-frame">
               <iframe
-                title={gift.title || "StoryGift video"}
+                title={gift.title || "StoryBox video"}
                 src={`https://www.youtube-nocookie.com/embed/${gift.videoId}`}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
@@ -229,15 +234,11 @@ export function GiftPage() {
           )}
         </div>
 
-        <div className="gift-receiver-text">
-          This StoryGift link lives on an NFC tag inside a physical gift. Every time it&apos;s tapped,
-          this page opens and plays the story attached to it.
-        </div>
 
         {/* Edit / Claim panel – ONLY for people who can edit */}
         {canEdit && (
           <div className="gift-edit-panel">
-            <h3 className="gift-edit-title">Claim this StoryGift</h3>
+            <h3 className="gift-edit-title">Claim this StoryBox</h3>
             <p className="gift-edit-subtitle">
               Add a title and a YouTube link with your message, song or memory. You can always come
               back and update it later.
@@ -269,19 +270,19 @@ export function GiftPage() {
               {saving
                 ? "Saving…"
                 : isUnclaimed
-                ? "SAVE & CLAIM THIS STORYGIFT"
+                ? "SAVE & CLAIM THIS STORYBOX"
                 : "SAVE CHANGES"}
             </button>
 
             <div className="gift-claim-note">
               {!user && (
-                <>To claim and edit this StoryGift, please sign in using the button at the top.</>
+                <>To claim and edit this StoryBox, please sign in using the button at the top.</>
               )}
               {user && isUnclaimed && (
-                <>You&apos;re signed in. When you save, this StoryGift will be linked to your account.</>
+                <>You&apos;re signed in. When you save, this StoryBox will be linked to your account.</>
               )}
               {user && isOwner && (
-                <>This StoryGift belongs to you. You can update the video and title anytime.</>
+                <>This StoryBox belongs to you. You can update the video and title anytime.</>
               )}
             </div>
 
@@ -297,7 +298,7 @@ export function GiftPage() {
         {!canEdit && !isUnclaimed && (
           <div className="gift-owner-note">
             This message was created with love by someone special. Only the person who created this
-            StoryGift can change it.
+            StoryBox can change it.
           </div>
         )}
 

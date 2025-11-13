@@ -4,12 +4,19 @@ import { GiftPage } from "./pages/GiftPage";
 import { AdminGiftsPage } from "./pages/AdminGiftsPage";
 import { SignInBar } from "./components/SignInBar";
 import "../src/pages/gift-page.css"
+import "../src/assets/storybox-logo.png"
 
 export default function App() {
   return (
     <>
      <div className="storygift-header">
-  <div className="header-logo">StoryGift</div>
+  {/* Header */}
+<div className="gift-header">
+  
+
+  {/* REMOVE the title below */}
+  {/* <h1 className="gift-main-title">Story Box</h1> */}
+</div>
    <div className="storygift-header-right"></div>
   <div className="signin-bar">
     <SignInBar />

@@ -158,7 +158,7 @@ export function SignInBar() {
                 textAlign: "center"
               }}
             >
-              {mode === "login" ? "Sign in to StoryGift" : "Create your StoryGift account"}
+              {mode === "login" ? "Sign in to StoryBox" : "Create your StoryBox account"}
             </h3>
 
             <input

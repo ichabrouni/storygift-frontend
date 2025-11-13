@@ -33,7 +33,7 @@ export function ShareVideoPage() {
     setError(null);
 
     if (!auth.currentUser) {
-      setError("Please sign in first to save your StoryGift.");
+      setError("Please sign in first to save your StoryBox.");
       return;
     }
     if (!isValid) {
@@ -62,7 +62,7 @@ export function ShareVideoPage() {
     <div className="sv-page">
       <div className="sv-bg-glow" />
       <div className="sv-card">
-        <div className="sv-step-chip">Step 1 · Create your StoryGift</div>
+        <div className="sv-step-chip">Step 1 · Create your StoryBox</div>
 
         <h1 className="sv-title">Add your video message</h1>
         <p className="sv-subtitle">
@@ -119,7 +119,7 @@ export function ShareVideoPage() {
                   />
                 </div>
                 <p className="sv-preview-caption">
-                  This is how your StoryGift will look when they tap the NFC tag.
+                  This is how your StoryBox will look when they tap the Box.
                 </p>
               </>
             ) : (

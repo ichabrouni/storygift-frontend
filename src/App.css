@@ -50,3 +50,53 @@
 .storygift-header-right {
   margin-left: auto;
 }
+/* HEADER LAYOUT */
+.storygift-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 32px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* LOGO AREA */
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* SMALL & ELEGANT LOGO */
+.header-logo-img {
+  height: 12px;      /* <<< PERFECT SIZE */
+  width: auto;
+}
+
+/* SIGN-IN BAR (right side) */
+.signin-bar {
+  display: flex;
+  align-items: center;
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+  .header-logo-img {
+    height: 20px;
+  }
+
+  .header-logo-text {
+    font-size: 17px;
+  }
+
+  .storygift-header {
+    padding: 10px 20px;
+  }
+}
